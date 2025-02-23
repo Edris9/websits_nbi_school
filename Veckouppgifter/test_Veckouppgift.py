@@ -137,3 +137,72 @@ def test_find_2nd_larg_digit():
             Verifies that the second largest value is 87
         """
         assert find_2nd_large([32,554,34,65,87,45,50]) == 87
+
+
+def test_c_to_f():
+    """
+    Test function for c_to_f conversion.
+
+    Tests the c_to_f function with various test cases:
+        - Valid temperature (10°C)
+        - Temperature below absolute zero (-300°C)
+        - Freezing point of water (0°C)
+        - Boiling point of water (100°C)
+        - Negative temperature (-40°C)
+
+    Returns:
+        None
+
+    Asserts:
+        Verifies correct Fahrenheit conversion for each test case
+    """
+    # Valid temperature
+    degree = 10
+    expected = 50
+    actual = c_to_f(degree)
+    assert actual == expected
+
+    # Temperature below absolute zero
+    degree = -300
+    expected = None
+    actual = c_to_f(degree)
+    assert actual == expected
+
+    # Freezing point of water
+    degree = 0
+    expected = 32
+    actual = c_to_f(degree)
+    assert actual == expected
+
+    # Boiling point of water
+    degree = 100
+    expected = 212
+    actual = c_to_f(degree)
+    assert actual == expected
+
+    # Negative temperature
+    degree = -40
+    expected = -40
+    actual = c_to_f(degree)
+    assert actual == expected
+
+
+
+def test_count_words():
+    # AK1: Enkla meningar
+    assert count_words("Hej på dig") == 3
+
+    # AK2: Flera mellanslag
+    assert count_words("Hej   på   dig") == 3
+
+    # AK3: Tom sträng
+    assert count_words("") == 0
+
+    # AK4: Mellanslag i början/slut
+    assert count_words(" Hej på dig ") == 3
+
+    # AK5: Inga mellanslag
+    assert count_words("Hej") == 1
+
+    print("Alla testfall godkända!")
+

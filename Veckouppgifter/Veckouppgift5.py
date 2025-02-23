@@ -55,3 +55,36 @@ def find_2nd_large(numbers=None):
     for i in numbers:
         if i == sorted(numbers)[-2]:
             return i
+
+
+def c_to_f(degree):
+    """ 
+    ekvivalensklasser 
+
+    Invalid Input:
+
+    Values less than -273.15°C (absolute zero).
+
+    Examples: -300, -1000.
+
+    Behavior: The function returns None.
+
+    Valid Input:
+
+    Values greater than or equal to -273.15°C.
+
+    Examples: 0, 100, -273.15, 25.5.
+
+    Behavior: The function returns the corresponding temperature in Fahrenheit.
+        
+    """
+    if degree < -273.15:
+        return None
+    return degree * 9 / 5 + 32
+
+
+def count_words(words):
+    # Strip whitespace from start/end and split on any number of spaces
+    if not words.strip():
+        return 0
+    return len(words.strip().split())
